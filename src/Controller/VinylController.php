@@ -15,11 +15,16 @@ class VinylController
     }
 
     #[Route('/browse/{slug}')]
-    public function browse(string $slug): Response
+    public function browse(string $slug = null): Response
     {
 //        $title = str_replace('-', ' ', $slug);
-        $title = u(str_replace('-', ' ', $slug))->title(true);
+        if ($slug) {
+            $title = 'Genre: ' . u(str_replace('-', ' ', $slug))->title(true);
+        } else {
+            $title = 'All Genres';
+        }
 
-        return new  Response('Genre: ' . $title);
+
+        return new  Response($title);
     }
 }
