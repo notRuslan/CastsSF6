@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use function Symfony\Component\String\u;
 
 class VinylController
 {
@@ -16,6 +17,9 @@ class VinylController
     #[Route('/browse/{slug}')]
     public function browse(string $slug): Response
     {
-        return new  Response('Genre: ' . $slug);
+//        $title = str_replace('-', ' ', $slug);
+        $title = u(str_replace('-', ' ', $slug))->title(true);
+
+        return new  Response('Genre: ' . $title);
     }
 }
