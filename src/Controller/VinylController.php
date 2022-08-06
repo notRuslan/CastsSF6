@@ -14,8 +14,8 @@ class VinylController
     }
 
     #[Route('/browse/{slug}')]
-    public function browse($slug): Response
+    public function browse(string $slug): Response
     {
-        return new  Response('Browse method');
+        return new  Response('Genre: ' . $slug);
     }
 }
