@@ -1,14 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hevy Metal | {{ parent() }}{% endblock %}
+
+{% block body %}
 <h1>{{ title }}</h1>
 
 {# TODO: add an image of record #}
 
 <div>
-    OUr scweet track list: TODO
+    Our scweet track list: TODO
     <ul>
-        {% for track in tracks %}
+        {% for index, track in tracks %}
             <li>
-                {{ track.song }} - {{ track.artist }}
+               {{ index }} {{ track.song }} - {{ track.artist|upper }}
             </li>
         {% endfor %}
     </ul>
 </div>
+
+{% endblock %}
