@@ -1,0 +1,14 @@
+<h1>{{ title }}</h1>
+
+{# TODO: add an image of record #}
+
+<div>
+    OUr scweet track list: TODO
+    <ul>
+        {% for track in tracks %}
+            <li>
+                {{ track.song }} - {{ track.artist }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
