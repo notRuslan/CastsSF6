@@ -11,7 +11,7 @@ use function Symfony\Component\String\u;
 class VinylController extends AbstractController
 {
     #[Route('/', name: 'app_homepage')]
-    public function homepage(Environment $twig): Response
+    public function homepage(): Response
     {
 //        return new Response('Title: Hi');
         $tracks = [
@@ -22,11 +22,10 @@ class VinylController extends AbstractController
             ['song' => 'On Bended Knee', 'artist' => 'Boyz II Men'],
             ['song' => 'Fantasy', 'artist' => 'Mariah Carey'],
         ];
-        $html =  $twig->render('vinyl/homepage.html.twig', [
+        return $this->render('vinyl/homepage.html.twig', [
             'title'  => 'PB & Jams',
             'tracks' => $tracks,
         ]);
-        return new Response($html);
     }
 
     #[Route('/browse/{slug}', name: 'app_browse')]
